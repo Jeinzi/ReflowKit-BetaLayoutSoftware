@@ -47,7 +47,9 @@ void GraphTemp::setTimeFrameOfset(int offset) {
 }
 
 void GraphTemp::resetGraph() {
-    _tempCurve.setSamples( 0, 0, 0 );
+    double x[1]= {0};
+    double y[1] ={0};
+    _tempCurve.setSamples( x, y, 0 );
 }
 
 void GraphTemp::setLine(QwtPlotCurve *curve, int value, string legendName) {

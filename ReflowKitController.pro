@@ -15,7 +15,7 @@ CONFIG += qwt
 
 
 unix {
-    INCLUDEPATH += /usr/local/qwt-6.0.3-svn/include
+    INCLUDEPATH += /usr/include/qwt/
 }
 win32 {
     INCLUDEPATH += E:/qwt-6.0/src
@@ -26,13 +26,11 @@ SOURCES += main.cpp\
         mainwindow.cpp\
     uart.cpp \
     reflowcontroller.cpp \
-    graphtemp.cpp \
-    arduinocontroller.cpp
+    graphtemp.cpp
 
 HEADERS  += mainwindow.h\
     uart.h \
     reflowcontroller.h \
-    graphtemp.h \
-    arduinocontroller.h
+    graphtemp.h
 
 FORMS    += mainwindow.ui

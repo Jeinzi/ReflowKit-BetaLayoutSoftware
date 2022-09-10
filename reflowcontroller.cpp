@@ -1,6 +1,5 @@
 #include "reflowcontroller.h"
 
-
 int ReflowController::MAX_DATAS_STORED = 16;
 int ReflowController::MAX_SIZE_TEMP_LIST=4096;
 
@@ -111,8 +110,7 @@ void ReflowController::addTemp(double temp, double time) {
 }
 
 void ReflowController::parseUart( string data ) {
-
-    QRegExp temp_reg("(OFF|ON|Soak|Preheat|Reflow|Dwell|learn|Learn),\\s*(\\d+),\\s*.(\\d+),\\s*degC");
+    QRegExp temp_reg("(OFF|ON|Soak|Preheat|Reflow|Dwell|learn|Learn),\\s*(\\d+),\\s*.(\\d+),\\s*(degC|C)");
     QRegExp config_reg("([a-z+-]{3,})\\s*(\\d{1,})");
 
     QString d( data.c_str() ) ;
@@ -167,7 +165,6 @@ void ReflowController::parseUart( string data ) {
         else if ( variable_name.compare("tempoffset") == 0 )
             _tempoffset = value;
     }
-
 }
 
 QVector<double>* ReflowController::getTemps() {

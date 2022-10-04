@@ -20,7 +20,7 @@ unix {
 win32 {
     INCLUDEPATH += E:/qwt-6.0/src
 }
-LIBS += -L/usr/local/qwt-6.0.3-svn/lib -lqwt
+#LIBS += -L/usr/local/qwt-6.0.3-svn/lib -lqwt
 
 SOURCES += main.cpp\
         mainwindow.cpp\

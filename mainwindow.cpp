@@ -137,7 +137,7 @@ void MainWindow::on_consoleCommand_returnPressed()
     if ( ui->consoleCommand->text() != "" )
     {
         _reflowC.getUartDevice()->send( ui->consoleCommand->text().toStdString() );
-        ui->statusBar->showMessage( "Sendind command from console inpute : "+ui->consoleCommand->text() );
+        ui->statusBar->showMessage( "Sending command from console input: "+ui->consoleCommand->text() );
     }
     else
         ui->statusBar->showMessage( "" );

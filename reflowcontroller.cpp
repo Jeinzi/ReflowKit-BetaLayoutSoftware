@@ -51,10 +51,6 @@ bool ReflowController::openDevice(string path) {
     return _uart->isDeviceOpen();
 }
 
-QStringList* ReflowController::getDatas() {
-    return _datas;
-}
-
 void ReflowController::resetTimeTemps() {
     _temps.clear();
     _times.clear();
@@ -167,18 +163,6 @@ void ReflowController::parseUart( string data ) {
     }
 }
 
-QVector<double>* ReflowController::getTemps() {
-    return &_temps;
-}
-
-QVector<double>* ReflowController::getTimes() {
-    return &_times;
-}
-
-Uart* ReflowController::getUartDevice() {
-    return _uart;
-}
-
 void ReflowController::closeDevice() {
     _temps.clear();
     _times.clear();
@@ -186,10 +170,6 @@ void ReflowController::closeDevice() {
 }
 
 //******************** SET/GET***********************************************
-
-int ReflowController::getCurrentTemp() {
-    return _currentTemp;
-}
 
 void ReflowController::setPhtTemp( int v ) {
     if ( v >= 0 &&  v <= 254 ) {
@@ -211,18 +191,21 @@ void ReflowController::setPhtPwr( int v ) {
         _uart->send("phtpwr "+QString::number(v).toStdString());
     }
 }
+
 void ReflowController::setSoakTemp( int v ) {
     if ( v >= 0 &&  v <= 254 ) {
         _soaktemp = v;
         _uart->send("soaktemp "+QString::number(v).toStdString());
     }
 }
+
 void ReflowController::setSoakTime( int v ) {
     if ( v >= 0 &&  v <= 65534 ) {
         _soaktime = v;
         _uart->send("soaktime "+QString::number(v).toStdString());
     }
 }
+
 void ReflowController::setSoakPwr( int v ) {
     if ( v >= 0 &&  v <= 100 ) {
         _soakpwr = v;
@@ -236,12 +219,14 @@ void ReflowController::setReflowTemp( int v ) {
         _uart->send("reflowtemp "+QString::number(v).toStdString());
     }
 }
+
 void ReflowController::setReflowTime( int v ) {
     if ( v >= 0 &&  v <= 65534 ) {
         _reflowtime = v;
         _uart->send("reflowtime "+QString::number(v).toStdString());
     }
 }
+
 void ReflowController::setReflowPwr( int v ) {
     if ( v >= 0 &&  v <= 100 ) {
         _reflowpwr = v;
@@ -255,19 +240,20 @@ void ReflowController::setDwellTemp( int v ) {
         _uart->send("dwelltemp "+QString::number(v).toStdString());
     }
 }
+
 void ReflowController::setDwellTime( int v ) {
     if ( v >= 0 &&  v <= 65534 ) {
         _dwelltime = v;
         _uart->send("dwelltime "+QString::number(v).toStdString());
     }
 }
+
 void ReflowController::setDwellPwr( int v ) {
    if ( v >= 0 &&  v <= 100 ) {
        _dwellpwr = v;
        _uart->send("dwellpwr "+QString::number(v).toStdString());
    }
 }
-
 
 void ReflowController::setTempoffset( int v ) {
     if ( v >= -30 &&  v <= 30 ) {
@@ -281,51 +267,22 @@ void ReflowController::setTempShow( int v ) {
        _tempshow = v;
 }
 
-
-int ReflowController::getPhtTemp(  ) const {
-    return _phttemp;
-}
-
-int ReflowController::getPhtTime(  ) const {
-    return _phttime;
-}
-int ReflowController::getPhtPwr(  ) const {
-    return _phtpwr;
-}
-
-int ReflowController::getSoakTemp(  ) const {
-    return _soaktemp;
-}
-int ReflowController::getSoakTime(  ) const {
-    return _soaktime;
-}
-int ReflowController::getSoakPwr(  ) const {
-    return _soakpwr;
-}
-
-int ReflowController::getReflowTemp(  ) const {
-    return _reflowtemp;
-}
-int ReflowController::getReflowTime(  ) const {
-    return _reflowtime;
-}
-int ReflowController::getReflowPwr(  ) const {
-    return _reflowpwr;
-}
-
-int ReflowController::getDwellTemp( ) const {
-    return _dwelltemp;
-}
-int ReflowController::getDwellTime( ) const {
-    return _dwelltime;
-}
-int ReflowController::getDwellPwr(  ) const {
-    return _dwellpwr;
-}
-
-int ReflowController::getTempoffset(  ) const {
-    return _tempoffset;
-}
-int ReflowController::getTempShow( ) const {
-    return _tempshow;
-}
+QStringList* ReflowController::getDatas() { return _datas; }
+QVector<double>* ReflowController::getTemps() { return &_temps; }
+QVector<double>* ReflowController::getTimes() { return &_times; }
+Uart* ReflowController::getUartDevice() { return _uart; }
+int ReflowController::getCurrentTemp() { return _currentTemp; }
+int ReflowController::getPhtTemp() const { return _phttemp; }
+int ReflowController::getPhtTime() const { return _phttime; }
+int ReflowController::getPhtPwr() const { return _phtpwr; }
+int ReflowController::getSoakTemp() const { return _soaktemp; }
+int ReflowController::getSoakTime() const { return _soaktime; }
+int ReflowController::getSoakPwr() const { return _soakpwr; }
+int ReflowController::getReflowTemp() const { return _reflowtemp; }
+int ReflowController::getReflowTime() const { return _reflowtime; }
+int ReflowController::getReflowPwr() const { return _reflowpwr; }
+int ReflowController::getDwellTemp() const { return _dwelltemp; }
+int ReflowController::getDwellTime() const { return _dwelltime; }
+int ReflowController::getDwellPwr() const { return _dwellpwr; }
+int ReflowController::getTempoffset() const { return _tempoffset; }
+int ReflowController::getTempShow() const { return _tempshow; }

@@ -160,7 +160,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="245"/>
+        <location filename="mainwindow.cpp" line="190"/>
         <source>Save File</source>
         <translation type="unfinished"></translation>
     </message>

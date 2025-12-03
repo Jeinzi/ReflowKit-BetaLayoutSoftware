@@ -187,8 +187,13 @@ void MainWindow::on_learnButton_clicked()
 
 void MainWindow::on_pushButton_clicked()
 {
-    QString fileName = QFileDialog::getSaveFileName(this, tr("Save File"), "./log_reflowkit.cvs");
-    _reflowC.exportCVS( fileName.toStdString(), ',' );
+    auto utc_datetime = std::chrono::system_clock::now();
+    auto tz = std::chrono::current_zone();
+    auto local_datetime = std::chrono::zoned_time{tz, utc_datetime};
+    std::string filename = std::format("./{0:%F}T{0:%H%M}_reflowkit.csv", local_datetime);
+
+    QString fileName = QFileDialog::getSaveFileName(this, tr("Save File"), filename.c_str());
+    _reflowC.exportCSV(fileName.toStdString(), ',');
 }
 
 void MainWindow::on_forceUpdate_clicked()

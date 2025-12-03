@@ -160,7 +160,7 @@
         <translation>Keine Verbindung mit dem Gerät möglich.</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="190"/>
+        <location filename="mainwindow.cpp" line="195"/>
         <source>Save File</source>
         <translation>Datei speichern</translation>
     </message>

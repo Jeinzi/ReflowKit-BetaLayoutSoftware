@@ -44,11 +44,11 @@ public:
      */
     Uart* getUartDevice();
     /**
-     * @brief exportCVS save datas (_temps an _times) to the specified file, with CVS format.
+     * @brief exportCSV saves data (_temps an _times) to the specified file, with CSV format.
      * @param path path to the file to save
-     * @param separator the separator for CVS format
+     * @param separator the separator for CSV format
      */
-    void exportCVS(string path, char separator);
+    void exportCSV(string path, char separator);
 
 
     /**

@@ -12,6 +12,7 @@ TARGET = ReflowKitController
 TEMPLATE = app
 
 CONFIG += qwt
+CONFIG += c++2a
 
 
 unix {

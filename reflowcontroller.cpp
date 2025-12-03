@@ -36,22 +36,22 @@ void ReflowController::resetTimeTemps() {
     _times.clear();
 }
 
-void ReflowController::exportCVS(string path, char separator ) {
-    ofstream cvs_file( path.c_str(), ios::out | ios::trunc);
+void ReflowController::exportCSV(string path, char separator ) {
+    ofstream csv_file( path.c_str(), ios::out | ios::trunc);
 
-    if(cvs_file)
+    if(csv_file)
     {
         int size = _temps.size();
         if ( size == _times.size() ) {
             for ( int i=0; i < size ; ++i) {
-                cvs_file << _times.at( i ) << separator << _temps.at(i) <<endl;
+                csv_file << _times.at( i ) << separator << _temps.at(i) <<endl;
             }
 
         }
-        cvs_file.close();
+        csv_file.close();
     }
     else  // sinon
-        cerr << "Error while opening CVS file " << path << endl;
+        cerr << "Error while opening CSV file " << path << endl;
 }
 
 void ReflowController::checkUartDataReady() {

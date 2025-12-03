@@ -4,9 +4,8 @@ Software for the [Beta Layout reflow controller](https://uk.beta-layout.com/esto
 ![The GUI](gui.png)
 
 ## Contact
-Florian Boudinet
-florian.boudinet@gmail.com
-
+Florian Boudinet <florian.boudinet@gmail.com>
+Julian Heinzel <jeinzi@gmx.de>
 
 ## Dependencies
 This software needs [Qt5](https://www.qt.io/) and [Qwt](https://sourceforge.net/projects/qwt).
@@ -24,11 +23,8 @@ pacman -Sy qwt
 ## Compilation
 ```bash
 cd ${ReflowKitSource}
-mkdir build
-cd build
-qmake ..
-make
-./ReflowKitController
+./build.sh
+./build/ReflowKitController
 ```
 
 Troubleshooting with the compilation: Perhaps you will have to edit the .pro file, to add and link Qwt properly, and adjust it to your settings (LD_PATH, Qwt source etc.).
@@ -36,6 +32,8 @@ Troubleshooting with the compilation: Perhaps you will have to edit the .pro fil
 ## Usage
 To start the reflow process after setting the temperature profile, enter "doStart" in the console text prompt and hit enter.
 
+## Add Translation
+Translatable strings in source code are marked with tr(). If you add new ones or modifiy existing strings, run lupdate (see build.sh). Translation is done by editing the *.ts files, for example using the Qt tool `linguist`. Afterwards, the .ts files have to be converted to .qm files, which build.sh also does automatically. New languages also have to be added to the .qrc and .pro files manually.
 
 ## UART
 The software uses the RS232 UART protocol to communicate with the device.

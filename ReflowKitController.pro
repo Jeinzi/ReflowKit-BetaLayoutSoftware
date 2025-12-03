@@ -34,3 +34,8 @@ HEADERS  += mainwindow.h\
     graphtemp.h
 
 FORMS    += mainwindow.ui
+RESOURCES += \
+    ReflowKitController.qrc
+TRANSLATIONS += \
+    ReflowKitController_de.ts \
+    ReflowKitController_fr.ts

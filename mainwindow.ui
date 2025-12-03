@@ -37,7 +37,7 @@
      <item row="0" column="0">
       <widget class="QLabel" name="refreshTimeLabel">
        <property name="text">
-        <string>Refresh time (sec.):  </string>
+        <string>Refresh time (s):  </string>
        </property>
       </widget>
      </item>
@@ -347,7 +347,7 @@
      <item row="0" column="0">
       <widget class="QLabel" name="refreshTimeUiLabel">
        <property name="text">
-        <string>Refresh time (sec.):  </string>
+        <string>Refresh time (s):  </string>
        </property>
       </widget>
      </item>

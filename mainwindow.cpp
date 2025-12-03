@@ -12,7 +12,7 @@ MainWindow::MainWindow(QWidget *parent) :
 #ifdef WIN32
     ui->pathToDevice->setText("COM4");
 #endif
-    setWindowTitle("ReflowKit Controller");
+    setWindowTitle(tr("ReflowKit Controller"));
     updateUiComponents();//Update UI component value, based on ReflowController Value.
 
     setEditValue( false );
@@ -60,10 +60,10 @@ void MainWindow::setEditValue(bool enable) {
     ui->dwellpwr->setReadOnly( !enable );
     ui->tempoffset->setReadOnly( !enable );
     if ( enable ) {
-        ui->editButton->setText("Update valeurs");
+        ui->editButton->setText(tr("Update values"));
     }
     else {
-        ui->editButton->setText("Editer");
+        ui->editButton->setText(tr("Edit"));
     }
 
 }
@@ -114,19 +114,19 @@ void MainWindow::on_connectButton_clicked()
 {
     if ( _reflowC.getUartDevice()->isDeviceOpen() ) {
         _reflowC.closeDevice();
-        ui->connectButton->setText("Connect");
-        ui->statusBar->showMessage("The device is disconnected.");
+        ui->connectButton->setText(tr("Connect"));
+        ui->statusBar->showMessage(tr("The device is disconnected."));
     }
     else {
-        ui->statusBar->showMessage("Trying a connection to the device...");
+        ui->statusBar->showMessage(tr("Trying to connect to the device…"));
         if ( _reflowC.openDevice( ui->pathToDevice->text().toStdString() ) )
         {
             _reflowC.updateInformation();
-            ui->connectButton->setText("Disconnect");
-            ui->statusBar->showMessage("Device connected.");
+            ui->connectButton->setText(tr("Disconnect"));
+            ui->statusBar->showMessage(tr("Device connected."));
         }
         else
-            ui->statusBar->showMessage("Can't connect to the device...");
+            ui->statusBar->showMessage(tr("Can't connect to the device."));
     }
 
 

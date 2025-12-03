@@ -193,7 +193,10 @@ void MainWindow::on_pushButton_clicked()
     std::string filename = std::format("./{0:%F}T{0:%H%M}_reflowkit.csv", local_datetime);
 
     QString fileName = QFileDialog::getSaveFileName(this, tr("Save File"), filename.c_str());
-    _reflowC.exportCSV(fileName.toStdString(), ',');
+    if (fileName != "") {
+        // Dialog was not canceled.
+        _reflowC.exportCSV(fileName.toStdString(), ',');
+    }
 }
 
 void MainWindow::on_forceUpdate_clicked()

@@ -25,10 +25,8 @@
 Uart::Uart(string portName)
 {
     _portName = portName;
-    _currentBaudRate = Uart::BR115200;
-    _device = NULL;
-
 }
+
 Uart::~Uart()
 {
     closeDevice();
@@ -36,7 +34,6 @@ Uart::~Uart()
 
 int Uart::openDevice()
 {
-
 #ifdef WIN32
     std::wstring portname_wstring = std::wstring( _portName.begin(), _portName.end() );
     LPCWSTR portname_cwstring = portname_wstring.c_str();
@@ -299,7 +296,7 @@ void Uart::setBlocking ( int should_block )
     timeouts.WriteTotalTimeoutMultiplier = 10;
     if (!SetCommTimeouts(_device, &timeouts))
     {
-        cout<<"Error ssetting timeout"<<endl;
+        cout<<"Error setting timeout"<<endl;
 //        msg.setText("Could not set GPS COM port timeouts!");
     }
 #endif

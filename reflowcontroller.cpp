@@ -5,26 +5,6 @@ int ReflowController::MAX_SIZE_TEMP_LIST=4096;
 
 ReflowController::ReflowController(QObject *parent) : QObject(parent)
 {
-    _phttemp=0;
-    _phttime=0;
-    _phtpwr=0;
-
-    _soaktemp=0;
-    _soaktime=0;
-    _soakpwr=0;
-
-    _reflowtemp=0;
-    _reflowtime=0;
-    _reflowpwr=0;
-
-    _dwelltemp=0;
-    _dwelltime=0;
-    _dwellpwr=0;
-
-    _tempoffset=0;
-    _currentTemp=0;
-    _tempshow=2;
-
     _datas = new QStringList();
     _uart = new Uart();
 }
@@ -111,8 +91,6 @@ void ReflowController::parseUart( string data ) {
 
     QString d( data.c_str() ) ;
     int pos = 0;
-
-
 
     //*********TEMP***********
     pos = 0;

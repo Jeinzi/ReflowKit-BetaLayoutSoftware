@@ -39,14 +39,14 @@ void ReflowController::updateInformation() {
 
 bool ReflowController::openDevice(string path) {
     _uart = new Uart( path );
-    if ( _uart->openDevice() < 0 )
-    {
-        return false;
-    }
-    else
+    if (_uart->openDevice())
     {
         _uart->setInterfaceAttrib(Uart::BR9600, 0);
         _uart->setBlocking(0);
+    }
+    else
+    {
+        return false;
     }
     return _uart->isDeviceOpen();
 }

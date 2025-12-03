@@ -51,8 +51,11 @@ int Uart::openDevice()
     }
 #endif
 #ifdef unix
-    _device = malloc( sizeof(int) );
-    *((int*)_device) = (open ( _portName.c_str(), O_RDWR | O_NOCTTY | O_SYNC));
+    int fd = open(_portName.c_str(), O_RDWR | O_NOCTTY | O_SYNC);
+    if (fd != -1) {
+        _device = malloc(sizeof(int));
+        *((int*)_device) = fd;
+    }
 #endif
     return _device != NULL;
 }
@@ -99,8 +102,10 @@ void Uart::closeDevice()
 #endif
 #ifdef unix
         close( *(int*)_device );
+        free(_device);
 #endif
     }
+    _device = NULL;
 }
 bool Uart::isDeviceOpen()
 {
